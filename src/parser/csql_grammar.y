@@ -25224,7 +25224,7 @@ parser_push_orderby_node (PT_NODE * node)
 {
   if (parser_orderby_node_sp >= parser_orderby_node_limit)
     {
-      size_t new_size = parser_orderby_node_limit * 2 * sizeof (PT_NODE **);
+      size_t new_size = parser_orderby_node_limit * 2 * sizeof (PT_NODE *);
       PT_NODE **new_p = malloc (new_size);
       if (new_p == NULL)
 	{
@@ -25269,7 +25269,7 @@ parser_push_select_stmt_node (PT_NODE * node)
 {
   if (parser_select_node_sp >= parser_select_node_limit)
     {
-      size_t new_size = parser_select_node_limit * 2 * sizeof (PT_NODE **);
+      size_t new_size = parser_select_node_limit * 2 * sizeof (PT_NODE *);
       PT_NODE **new_p = malloc (new_size);
       if (new_p == NULL)
 	{
@@ -25320,7 +25320,7 @@ parser_push_hint_node (PT_NODE * node)
 {
   if (parser_hint_node_sp >= parser_hint_node_limit)
     {
-      size_t new_size = parser_hint_node_limit * 2 * sizeof (PT_NODE **);
+      size_t new_size = parser_hint_node_limit * 2 * sizeof (PT_NODE *);
       PT_NODE **new_p = malloc (new_size);
       if (new_p == NULL)
 	{
