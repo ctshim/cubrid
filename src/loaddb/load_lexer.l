@@ -254,18 +254,6 @@ using token = cubload::parser::token;
     return token::TIME_LIT31;
 }
 
-[0-9]+:[0-9]+:[0-9]+ {
-    PRINT ("TIME_LIT2 %s\n", yytext);
-    yylval->string = m_semantic_helper.make_string_by_yytext (yytext, yyleng);
-    return token::TIME_LIT2;
-}
-
-[0-9]+:[0-9]+ {
-    PRINT ("TIME_LIT1 %s\n", yytext);
-    yylval->string = m_semantic_helper.make_string_by_yytext (yytext, yyleng);
-    return token::TIME_LIT1;
-}
-
 [0-9]+\/[0-9]+\/[0-9]+ {
     PRINT ("DATE_LIT2 %s\n", yytext);
     yylval->string = m_semantic_helper.make_string_by_yytext (yytext, yyleng);
@@ -554,10 +542,6 @@ using token = cubload::parser::token;
 
 <DQS>[^\"] {
     m_semantic_helper.append_char (yytext[0]);
-}
-
-<DQS>\\ {
-    /* ignore */ ;
 }
 
 <DQS>\" {

@@ -103,8 +103,6 @@ namespace cubload
 %token <string> TIME_LIT42
 %token <string> TIME_LIT3
 %token <string> TIME_LIT31
-%token <string> TIME_LIT2
-%token <string> TIME_LIT1
 %token <string> DATE_LIT2
 %token YEN_SYMBOL
 %token WON_SYMBOL
@@ -455,8 +453,6 @@ constant :
   | TIME_LIT42               { $$ = m_driver.get_semantic_helper ().make_constant (LDR_TIME, $1); }
   | TIME_LIT3                { $$ = m_driver.get_semantic_helper ().make_constant (LDR_TIME, $1); }
   | TIME_LIT31               { $$ = m_driver.get_semantic_helper ().make_constant (LDR_TIME, $1); }
-  | TIME_LIT2                { $$ = m_driver.get_semantic_helper ().make_constant (LDR_TIME, $1); }
-  | TIME_LIT1                { $$ = m_driver.get_semantic_helper ().make_constant (LDR_TIME, $1); }
   | INT_LIT                  { $$ = m_driver.get_semantic_helper ().make_constant (LDR_INT, $1); }
   | REAL_LIT                 { $$ = m_driver.get_semantic_helper ().make_real ($1); }
   | DATE_LIT2                { $$ = m_driver.get_semantic_helper ().make_constant (LDR_DATE, $1); }
