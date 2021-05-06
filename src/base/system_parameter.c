@@ -3075,7 +3075,7 @@ static SYSPRM_PARAM prm_Def[] = {
    (DUP_PRM_FUNC) prm_io_pages_to_size},
   {PRM_ID_DONT_REUSE_HEAP_FILE,
    PRM_NAME_DONT_REUSE_HEAP_FILE,
-   (PRM_FOR_SERVER | PRM_USER_CHANGE | PRM_HIDDEN),
+   (PRM_FOR_SERVER | PRM_USER_CHANGE),
    PRM_BOOLEAN,
    &prm_dont_reuse_heap_file_flag,
    (void *) &prm_dont_reuse_heap_file_default,
@@ -9215,7 +9215,7 @@ sysprm_generate_new_value (SYSPRM_PARAM * prm, const char *value, bool check, SY
     case PRM_INTEGER:
       {
 	/* convert string to int */
-	int val;
+	int val = 0;
 
 	if (set_default)
 	  {
@@ -9357,7 +9357,7 @@ sysprm_generate_new_value (SYSPRM_PARAM * prm, const char *value, bool check, SY
     case PRM_FLOAT:
       {
 	/* convert string to float */
-	float val;
+	float val = 0.f;
 
 	if (set_default)
 	  {
